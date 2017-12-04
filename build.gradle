@@ -1,0 +1,31 @@
+subprojects {
+    group 'io.github.robhinds.getloose'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'scala'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        scalaSuffix = "2.12"
+        scalaVersion = "$scalaSuffix.4"
+        catsVersion = "0.9.0"
+        scalaTestVersion = "3.0.4"
+        akkaHttpVersion = "10.0.10"
+        akkaActorVersion = "2.4.19"
+    }
+
+    dependencies {
+        compile "org.scala-lang:scala-library:$scalaVersion"
+        compile "org.typelevel:cats-core_$scalaSuffix:$catsVersion"
+
+        testCompile "org.scalactic:scalactic_$scalaSuffix:$scalaTestVersion"
+        testCompile "org.scalatest:scalatest_$scalaSuffix:$scalaTestVersion"
+        testCompile 'junit:junit:4.12'
+    }
+
+}
