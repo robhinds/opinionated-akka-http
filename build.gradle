@@ -17,6 +17,7 @@ subprojects {
         scalaTestVersion = "3.0.4"
         akkaHttpVersion = "10.0.10"
         akkaActorVersion = "2.4.19"
+        circeVersion = "0.8.0"
     }
 
     dependencies {
