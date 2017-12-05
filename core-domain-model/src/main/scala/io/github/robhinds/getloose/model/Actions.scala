@@ -6,6 +6,6 @@ object Actions {
 
   sealed trait Action
 
-  case class GetUserRequest(handle: Option[String], uuid: Option[UUID]) extends Action
+  case class GetUserRequest(handle: Option[String], uuid: Option[String]) extends Action
 
 }

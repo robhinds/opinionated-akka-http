@@ -8,29 +8,31 @@ import io.github.robhinds.getloose.routing.directives.Directives._
 import io.github.robhinds.getloose.model.Actions.GetUserRequest
 import io.github.robhinds.getloose.services.ContactableServiceComponent
 
-class ContactableRoutes {
+class ContactableRoutes extends Controller {
   this: ContactableServiceComponent =>
 
   val routes: Route =
-    getPath("users" / JavaUUID) { uuid =>
-      complete(contactableService.getContactable(GetUserRequest(None, Some(uuid))))
+    getPath("users" / Segment) { uuid =>
+      handleRequest(contactableService.getContactable(GetUserRequest(None, Some(uuid))))
     } ~
-    getPath("users" / String) { handle =>
-      complete(contactableService.getContactable(GetUserRequest(Some(handle), None)))
+    getPath("users" / Segment) { handle =>
+      handleRequest(contactableService.getContactable(GetUserRequest(Some(handle), None)))
     }
 
 }
 
 sealed trait ErrorResponse
-case class NotFound(private val statusCode: StatusCode = StatusCodes.NotFound)
+case object NotFound{
+  val statusCode: StatusCode = StatusCodes.NotFound
+}
 
-abstract class Controller[A: Decoder] {
+trait Controller {
   import io.circe.syntax._
   import io.circe.generic.auto._
-  def handleRequest(response: Either[ErrorResponse, A]) = {
+  def handleRequest[A: Decoder](response: Option[A]) = {
     response match {
-      case Left(e) => complete(e.asJson.toString)
-      case Right(a) => complete(a.asJson.toString)
+      case Some(x) => complete(x.asJson.toString)
+      case None => complete(NotFound.asJson.toString)
     }
   }
 }
