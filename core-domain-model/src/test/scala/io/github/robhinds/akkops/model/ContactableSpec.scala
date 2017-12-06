@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.model
+package io.github.robhinds.akkops.model
 
 import org.scalatest.FlatSpec
 

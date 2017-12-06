@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.model.core
+package io.github.robhinds.akkops.model.core
 
 import akka.http.scaladsl.model.StatusCodes
 

@@ -1,9 +1,9 @@
-package io.github.robhinds.getloose.routing
+package io.github.robhinds.akkops.routing
 
 import akka.http.scaladsl.server.Directives._
 import io.circe.Encoder
-import io.github.robhinds.getloose.model.core.Errors.AkkOpError
-import io.github.robhinds.getloose.model.core.Response.Response
+import io.github.robhinds.akkops.model.core.Errors.AkkOpError
+import io.github.robhinds.akkops.model.core.Response.Response
 
 trait ResponseHandler {
   import io.circe.syntax._

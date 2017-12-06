@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.routing.directives
+package io.github.robhinds.akkops.routing.directives
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{Directive, PathMatcher}

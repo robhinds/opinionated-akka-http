@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.routing.directives
+package io.github.robhinds.akkops.routing.directives
 
 trait Directives
   extends ApiDirectives

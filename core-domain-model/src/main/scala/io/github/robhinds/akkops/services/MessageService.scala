@@ -1,8 +1,8 @@
-package io.github.robhinds.getloose.services
+package io.github.robhinds.akkops.services
 
-import io.github.robhinds.getloose.model.core.Actions.GetUserRequest
-import io.github.robhinds.getloose.model.core.Response.Response
-import io.github.robhinds.getloose.model.domain.Message
+import io.github.robhinds.akkops.model.core.Actions.GetUserRequest
+import io.github.robhinds.akkops.model.core.Response.Response
+import io.github.robhinds.akkops.model.domain.Message
 
 trait MessageService {
 

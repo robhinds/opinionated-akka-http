@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.model.domain
+package io.github.robhinds.akkops.model.domain
 
 import java.util.UUID
 
