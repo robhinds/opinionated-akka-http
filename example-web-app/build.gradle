@@ -1,4 +1,4 @@
 dependencies {
-    compile project(":core-domain-model")
+    compile project(":example-web-model")
     compile project(":web-app")
 }
