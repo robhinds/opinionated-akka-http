@@ -1,4 +1,4 @@
-package io.github.robhinds.getloose.model
+package io.github.robhinds.getloose.model.domain
 
 sealed trait Message {
   val content: String

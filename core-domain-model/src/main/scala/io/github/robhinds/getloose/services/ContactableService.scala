@@ -1,15 +1,14 @@
 package io.github.robhinds.getloose.services
 
-import io.github.robhinds.getloose.model.Actions.GetUserRequest
-import io.github.robhinds.getloose.model.{Channel, Contactable, User}
+import io.github.robhinds.getloose.model.core.Actions.GetUserRequest
+import io.github.robhinds.getloose.model.core.Response.Response
+import io.github.robhinds.getloose.model.domain.{Channel, Contactable, User}
 
 trait ContactableService {
 
-  def getAllUsers: Seq[User]
-
-  def getAllChannels: Seq[Channel]
-
-  def getContactable(request: GetUserRequest): Option[Contactable]
+  def getAllUsers: Response[Seq[User]]
+  def getAllChannels: Response[Seq[Channel]]
+  def getContactable(request: GetUserRequest): Response[Contactable]
 
 }
 

@@ -1,5 +1,5 @@
 dependencies {
-    compile project(":core-domain-model")
+    compile project(":web-model")
     compile "com.typesafe.akka:akka-http_$scalaSuffix:$akkaHttpVersion"
     compile "io.circe:circe-core_$scalaSuffix:$circeVersion"
     compile "io.circe:circe-generic_$scalaSuffix:$circeVersion"

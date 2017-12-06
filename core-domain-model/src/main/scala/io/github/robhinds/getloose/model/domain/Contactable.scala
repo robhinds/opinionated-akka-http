@@ -1,9 +1,9 @@
-package io.github.robhinds.getloose.model
+package io.github.robhinds.getloose.model.domain
 
 import java.util.UUID
 
-import cats.data.ValidatedNel
 import cats.data.Validated.{invalidNel, valid}
+import cats.data.ValidatedNel
 
 sealed trait Contactable {
   val uuid: UUID

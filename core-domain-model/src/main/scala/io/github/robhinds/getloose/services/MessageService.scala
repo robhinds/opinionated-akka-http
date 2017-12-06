@@ -1,13 +1,16 @@
 package io.github.robhinds.getloose.services
 
-import io.github.robhinds.getloose.model.Actions.GetUserRequest
-import io.github.robhinds.getloose.model.Errors.ContactableError
-import io.github.robhinds.getloose.model._
+import io.github.robhinds.getloose.model.core.Actions.GetUserRequest
+import io.github.robhinds.getloose.model.core.Response.Response
+import io.github.robhinds.getloose.model.domain.Message
 
 trait MessageService {
 
-  def getMessages(recipient: GetUserRequest): Either[ContactableError, Seq[Message]]
+  def getMessages(recipient: GetUserRequest): Response[Seq[Message]]
+  def sendMessage(content: String, recipient: GetUserRequest): Response[Message]
 
-  def sendMessage(content: String, recipient: GetUserRequest): Either[ContactableError, Message]
+}
 
+trait MessageServiceComponent {
+  def messageService: MessageService
 }

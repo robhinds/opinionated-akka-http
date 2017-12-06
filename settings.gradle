@@ -1,2 +1,2 @@
-include 'core-domain-model', 'web-app'
+include 'core-domain-model', 'web-app', 'web-model', 'example-web-app'
 
