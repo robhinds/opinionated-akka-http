@@ -5,14 +5,14 @@ import akka.http.scaladsl.server.Directives._
 import io.github.robhinds.akkops.model.core.Actions.GetUserRequest
 import io.github.robhinds.akkops.routing.directives.Directives._
 import io.github.robhinds.akkops.services.ContactableServiceComponent
-import ResponseHandler._
+import DefaultResponseHandler._
 import io.circe.generic.auto._
 
 class ContactableRoutes {
   this: ContactableServiceComponent =>
 
   val routes: Route =
-    getPath("users" / Segment) { uuid =>
+    getPath("users" / JavaUUID) { uuid =>
       respond(contactableService.getContactable(GetUserRequest(None, Some(uuid))))
     } ~
     getPath("users" / Segment) { handle =>

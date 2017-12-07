@@ -5,11 +5,11 @@ import akka.http.scaladsl.model.StatusCodes
 object Errors {
 
   sealed trait AkkOpError {
-    val statusCode: String
+    val statusCode: Int
     val data: String
   }
 
-  case class NotFound(data: String, statusCode: String = StatusCodes.NotFound.value) extends AkkOpError
-  case class BadRequest(data: String, statusCode: String = StatusCodes.BadRequest.value) extends AkkOpError
+  case class NotFound(data: String, statusCode: Int = StatusCodes.NotFound.intValue) extends AkkOpError
+  case class BadRequest(data: String, statusCode: Int = StatusCodes.BadRequest.intValue) extends AkkOpError
 
 }
