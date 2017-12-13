@@ -17,16 +17,19 @@ trait ResponseHandler {
 
   def respond[A](response: Future[Response[A]], successStatusCode: StatusCode = StatusCodes.OK)
     (implicit ee: Encoder[AkkOpError], te: Encoder[A]): StandardRoute = {
-    complete(
-      response map {
-        case Left(er) =>
-          (StatusCode.int2StatusCode(er.statusCode),
+    complete(responseTuple(response))
+  }
+
+  private[routing] def responseTuple[A](response: Future[Response[A]], successStatusCode: StatusCode = StatusCodes.OK)
+    (implicit ee: Encoder[AkkOpError], te: Encoder[A])= {
+    response map {
+      case Left(er) =>
+        (StatusCode.int2StatusCode(er.statusCode),
           wrap(StatusCode.int2StatusCode(er.statusCode), er.asJson).toString)
-        case Right(a) =>
-          (successStatusCode,
+      case Right(a) =>
+        (successStatusCode,
           wrap(successStatusCode, a.asJson).toString)
-      }
-    )
+    }
   }
 }
 

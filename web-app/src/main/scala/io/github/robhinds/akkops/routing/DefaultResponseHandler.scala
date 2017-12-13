@@ -7,9 +7,13 @@ object DefaultResponseHandler extends ResponseHandler with DefaultResponseWrappe
 
 trait DefaultResponseWrapperEncoder extends ResponseWrapperEncoder {
   def wrap(status: StatusCode, data: Json, metaData: Option[Json]): Json = {
-    Json.fromFields(List(
+    val json = Json.fromFields(List(
       ("status", Json.fromString(status.value)),
       ("data", data),
     ))
+    metaData match {
+      case Some(j) => j.deepMerge(json)
+      case _ => json
+    }
   }
 }
