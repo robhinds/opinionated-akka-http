@@ -9,7 +9,7 @@ trait DefaultResponseWrapperEncoder extends ResponseWrapperEncoder {
   def wrap(status: StatusCode, data: Json, metaData: Option[Json]): Json = {
     val json = Json.fromFields(List(
       ("status", Json.fromString(status.value)),
-      ("data", data),
+      ("data", data)
     ))
     metaData match {
       case Some(j) => j.deepMerge(json)
