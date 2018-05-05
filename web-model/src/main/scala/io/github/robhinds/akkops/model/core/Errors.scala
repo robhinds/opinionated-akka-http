@@ -1,15 +1,14 @@
 package io.github.robhinds.akkops.model.core
 
-import akka.http.scaladsl.model.StatusCodes
-
 object Errors {
 
-  sealed trait AkkOpError {
-    val statusCode: Int
+  sealed trait ErrorResponse {
     val data: String
   }
 
-  case class NotFound(data: String, statusCode: Int = StatusCodes.NotFound.intValue) extends AkkOpError
-  case class BadRequest(data: String, statusCode: Int = StatusCodes.BadRequest.intValue) extends AkkOpError
-
+  case class NotFound(data: String = "Not found") extends ErrorResponse
+  case class BadRequest(data: String = "Bad request") extends ErrorResponse
+  case class Unauthorized(data: String = "Unauthorized") extends ErrorResponse
+  case class Forbidden(data: String = "Forbidden") extends ErrorResponse
+  case class InternalServerError(data: String = "Internal server error") extends ErrorResponse
 }

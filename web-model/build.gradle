@@ -1,3 +1,0 @@
-dependencies {
-    compile "com.typesafe.akka:akka-http-core_$scalaSuffix:$akkaHttpVersion"
-}

@@ -5,18 +5,19 @@ import org.scalatest.{AsyncFlatSpec, Matchers}
 import io.circe.generic.auto._
 import io.circe._
 import io.circe.parser._
-import io.github.robhinds.akkops.model.core.Errors.{AkkOpError, BadRequest}
+import io.github.robhinds.akkops.model.core.Errors.{ErrorResponse, BadRequest}
 import io.github.robhinds.akkops.model.core.Response.Response
 
 import scala.concurrent.Future
 
 class ResponseHandlerSpec extends AsyncFlatSpec with Matchers
   with ResponseHandler
-  with DefaultResponseWrapperEncoder {
+  with DefaultResponseWrapperEncoder
+  with DefaultErrorHandler {
 
   case class TestData(num: Int, word: String)
   def wrap(in: TestData): Future[Response[TestData]] = Future.successful(Right(in))
-  def wrap(in: AkkOpError): Future[Response[TestData]] = Future.successful(Left(in))
+  def wrap(in: ErrorResponse): Future[Response[TestData]] = Future.successful(Left(in))
 
   "Status code" should "default to 200 OK" in {
     responseTuple(wrap(TestData(1,"hello"))) map {
