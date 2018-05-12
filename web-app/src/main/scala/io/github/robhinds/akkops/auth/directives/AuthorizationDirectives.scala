@@ -10,7 +10,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 trait AuthorizationDirectives extends SessionDirectives with LazyLogging {
 
-  val sessionConfig = SessionConfig.default("SERVER SECRET")
+  val sessionConfig = SessionConfig.default("SERVER SECRETSECRETSECRETSECRETSECRETSECRETSECRETSECRETSECRETSECRET")
   implicit val sessionManager = new SessionManager[UserSession](sessionConfig)
   implicit val refreshTokenStorage = new InMemoryRefreshTokenStorage[UserSession] {
     def log(msg: String) = logger.info(msg)
