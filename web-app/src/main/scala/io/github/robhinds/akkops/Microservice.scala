@@ -1,4 +1,4 @@
-package io.github.robhinds.akkops.routing
+package io.github.robhinds.akkops
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Route
