@@ -18,11 +18,15 @@ subprojects {
         akkaHttpVersion = "10.0.10"
         akkaActorVersion = "2.4.19"
         circeVersion = "0.8.0"
+        akkaHttpCirceVersion = "1.20.1"
+        akkaHttpSessionVersion = "0.5.5"
+        loggingVersion = "3.9.0"
     }
 
     dependencies {
         compile "org.scala-lang:scala-library:$scalaVersion"
         compile "org.typelevel:cats-core_$scalaSuffix:$catsVersion"
+        compile "com.typesafe.scala-logging:scala-logging_$scalaSuffix:$loggingVersion"
 
         testCompile "org.scalactic:scalactic_$scalaSuffix:$scalaTestVersion"
         testCompile "org.scalatest:scalatest_$scalaSuffix:$scalaTestVersion"

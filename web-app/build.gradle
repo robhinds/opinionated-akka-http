@@ -4,4 +4,7 @@ dependencies {
     compile "io.circe:circe-core_$scalaSuffix:$circeVersion"
     compile "io.circe:circe-generic_$scalaSuffix:$circeVersion"
     compile "io.circe:circe-parser_$scalaSuffix:$circeVersion"
+    compile "de.heikoseeberger:akka-http-circe_$scalaSuffix:$akkaHttpCirceVersion"
+    compile "com.softwaremill.akka-http-session:core_$scalaSuffix:$akkaHttpSessionVersion"
+    compile "com.softwaremill.akka-http-session:jwt_$scalaSuffix:$akkaHttpSessionVersion"
 }
