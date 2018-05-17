@@ -1,9 +1,10 @@
 package io.github.robhinds.akkops.model.core
 
-import io.github.robhinds.akkops.model.core.Errors.{ErrorResponse, NotFound}
+import io.github.robhinds.akkops.model.core.Errors.{AuthenticationError, ErrorResponse, NotFound}
 
 object Response {
 
+  type AuthenticationResponse[T] = Either[AuthenticationError, T]
   type Response[T] = Either[ErrorResponse, T]
 
   def success[T](t: T): Response[T] = Right(t)
