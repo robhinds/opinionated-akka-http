@@ -54,7 +54,7 @@ class ResponseHandlerSpec extends AsyncFlatSpec with Matchers
   "response" should "serialise errors to json correctly" in {
     responseTuple(wrap(BadRequest("Badly formatted request"))) map {
       case (_, j) =>
-        j shouldBe "{\n  \"status\" : \"400 Bad Request\",\n  \"data\" : {\n    \"BadRequest\" : {\n      \"data\" : \"Badly formatted request\",\n      \"statusCode\" : 400\n    }\n  }\n}"
+        j shouldBe "{\n  \"status\" : \"400 Bad Request\",\n  \"data\" : {\n    \"BadRequest\" : {\n      \"data\" : \"Badly formatted request\"\n    }\n  }\n}"
     }
   }
 

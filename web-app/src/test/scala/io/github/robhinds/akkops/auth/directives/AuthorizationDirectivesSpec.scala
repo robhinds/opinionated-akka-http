@@ -16,7 +16,7 @@ trait MockAuthenticationProvider extends AuthenticationProvider {
 
 
 class AuthorizationDirectivesSpec extends FlatSpec with Matchers with ScalatestRouteTest
-  with AuthorizationDirectives with MockAuthenticationProvider {
+  with CookieAuthorizationDirectives with MockAuthenticationProvider {
 
   val routes = Route.seal(
     get {
