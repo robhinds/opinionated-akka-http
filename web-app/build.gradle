@@ -9,3 +9,5 @@ dependencies {
     compile "com.softwaremill.akka-http-session:core_$scalaSuffix:$akkaHttpSessionVersion"
     compile "com.softwaremill.akka-http-session:jwt_$scalaSuffix:$akkaHttpSessionVersion"
 }
+
+jar.baseName = "web-app_$scalaSuffix"

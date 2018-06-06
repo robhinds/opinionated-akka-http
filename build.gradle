@@ -10,7 +10,7 @@ buildscript {
 }
 
 subprojects {
-    group 'io.github.robhinds.getloose'
+    group 'io.github.robhinds.akk-ops'
     version '1.0-SNAPSHOT'
 
     apply plugin: 'scala'
