@@ -11,3 +11,5 @@ dependencies {
 }
 
 jar.baseName = "web-app_$scalaSuffix"
+
+apply from: 'bintray.gradle'
